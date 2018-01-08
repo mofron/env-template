@@ -1,2 +1,2 @@
-# mofron-app-tmpl
-mofron base application template
+# env-tmplate
+mofron environment template
