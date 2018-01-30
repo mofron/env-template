@@ -37,6 +37,10 @@ build_env () {
 
 del_file
 build_env
+npm install mofron
+if [ $? != 0 ]; then
+    error "could not install mofron"
+fi
 echo `./tool/build.sh`
 
 echo "initialized mofron env"
