@@ -1,6 +1,6 @@
 #!/bin/bash
 SCP_DIR=$(cd $(dirname $0);pwd);
-cd $SCP_DIR/../
+cd $SCP_DIR/../../
 
 error () {
     echo "ERROR : $1"
