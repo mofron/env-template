@@ -1,6 +1,6 @@
 /**
- * @file top.js
- * @brief top page
+ * @file index.js
+ * @brief index page initialize
  */
 let mf = require('mofron');
 /* app ctrl */
