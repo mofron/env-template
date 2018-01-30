@@ -23,11 +23,6 @@ del_file () {
     if [ $? != 0 ]; then
         error "could not delete ./git"
     fi
-    
-    sudo rm ./tool/init.sh
-    if [ $? != 0 ]; then
-        error "could not delete init.sh"
-    fi
 }
 
 build_env () {
