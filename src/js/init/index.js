@@ -9,9 +9,9 @@ let theme = require('../conf/theme.js');
 /**
  * page init function
  * 
- * @param rt : root component
+ * @param rt (mf.Component) root component
  */
-let start = (rt) => {
+let start = (rc) => {
     try {
         // page init here
     } catch (e) {

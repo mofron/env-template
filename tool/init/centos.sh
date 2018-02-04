@@ -38,4 +38,11 @@ if [ $? != 0 ]; then
 fi
 echo `./tool/build.sh`
 
+rm -rf ./src/js/app/.dmy
+rm -rf ./src/js/comp/.dmy
+rm -rf ./html/.dmy
+rm -rf ./img/.dmy
+rm -rf ./font/.dmy
+
+
 echo "initialized mofron env"
