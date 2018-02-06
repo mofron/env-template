@@ -2,7 +2,8 @@
  * @file theme.js
  * @brief app theme
  */
-let mf = require('mofron');
+let mf   = require('mofron');
+
 module.exports = {
     theme : (thm) => {
         try {
