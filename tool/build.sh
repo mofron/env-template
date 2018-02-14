@@ -4,3 +4,4 @@ cd $SCP_DIR/../
 WEBPACK=node_modules/.bin/webpack
 
 echo $($WEBPACK --config conf/webpack/webpack.config.index.js);
+echo $($WEBPACK --config conf/webpack/webpack.config.login.js );
