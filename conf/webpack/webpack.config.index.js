@@ -1,4 +1,6 @@
 const webpack =　require("webpack");
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+
 module.exports = {
   entry: __dirname + '/../../src/js/init/index.js',
   output: {
@@ -20,8 +22,6 @@ module.exports = {
     ]
   },
   plugins: [
-    new webpack.LoaderOptionsPlugin({
-      minimize: true
-    })
+    new UglifyJsPlugin()
   ]
 };
