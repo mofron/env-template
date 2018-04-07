@@ -1,10 +1,10 @@
 sudo yum update
-sudo yum install libmpc-devel mpfr-devel gmp-devel gcc zlib-devel git
+sudo yum install libmpc-devel mpfr-devel gmp-devel gcc gcc-c++ zlib-devel git
 
 # install g++
 cd /tmp
 wget https://ftp.gnu.org/gnu/gcc/gcc-4.9.4/gcc-4.9.4.tar.gz
-tar xvzf gcc-4.9.4.ta.gz
+tar xvzf gcc-4.9.4.tar.gz
 cd gcc-4.9.4
 ./configure --with-system-zlib --disable-multilib --enable-languages=c,c++
 sudo make
