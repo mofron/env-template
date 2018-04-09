@@ -24,5 +24,5 @@ module.exports = {
   plugins: [
     new UglifyJsPlugin()
   ],
-  target: "node"
+  //target: "node"
 };
