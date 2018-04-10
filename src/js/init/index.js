@@ -3,6 +3,8 @@
  * @brief index page initialize
  */
 let mf = require('mofron');
+require('expose-loader?app!../conf/namesp.js');
+
 /* app ctrl */
 let theme = require('../conf/theme.js');
 
@@ -22,7 +24,6 @@ let start = (rc) => {
 }
 
 try {
-    require('expose-loader?app!../conf/namesp.js');
     theme.theme(app.root.theme());
     start(app.root);
     app.root.visible(true);
