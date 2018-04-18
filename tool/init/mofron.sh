@@ -10,7 +10,7 @@ error () {
 
 echo " ** start install front-end framework"
 
-sudo npm install mofron
+sudo npm install mofron $@
 if [ $? != 0 ]; then
     error "could not install mofron"
 fi
