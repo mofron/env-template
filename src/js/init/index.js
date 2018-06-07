@@ -7,6 +7,8 @@ require('expose-loader?app!../conf/namesp.js');
 
 /* app ctrl */
 let theme = require('../conf/theme.js');
+let devtype = require('../ctrl/devtype.js');
+let dev_def = require('./index/default.js');
 
 /**
  * page init function
@@ -15,8 +17,11 @@ let theme = require('../conf/theme.js');
  */
 let start = (rc) => {
     try {
-        // page init here
+        if (true === devtype.isMobile()) {
 
+        } else {
+            dev_def(rc);
+        }
     } catch (e) {
         console.error(e.stack);
         throw e;
