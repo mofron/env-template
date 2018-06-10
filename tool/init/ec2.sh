@@ -1,14 +1,5 @@
 sudo yum update
-sudo yum install libmpc-devel mpfr-devel gmp-devel gcc gcc-c++ zlib-devel git
-
-# install g++
-cd /tmp
-wget https://ftp.gnu.org/gnu/gcc/gcc-4.9.4/gcc-4.9.4.tar.gz
-tar xvzf gcc-4.9.4.tar.gz
-cd gcc-4.9.4
-./configure --with-system-zlib --disable-multilib --enable-languages=c,c++
-sudo make
-sudo make install
+sudo yum install -y gcc-c++ make openssl-devel git
 
 # install node
 cd /tmp
@@ -18,7 +9,7 @@ sudo ./configure
 sudo make
 sudo make install
 
-export PATH=$PATH:/usr/local/bin
+sudo export PATH=$PATH:/usr/local/bin
 
 # install npm
 cd /tmp
