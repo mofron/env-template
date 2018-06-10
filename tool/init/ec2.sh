@@ -9,7 +9,7 @@ sudo ./configure
 sudo make
 sudo make install
 
-sudo export PATH=$PATH:/usr/local/bin
+sudo ln -s /usr/local/bin/node /usr/bin/node
 
 # install npm
 cd /tmp
@@ -17,3 +17,5 @@ git clone https://github.com/npm/npm.git
 cd npm
 sudo make
 sudo make install
+
+sudo ln -s /usr/local/bin/npm /usr/bin/npm
