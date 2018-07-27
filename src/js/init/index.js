@@ -2,11 +2,11 @@
  * @file index.js
  * @brief index page initialize
  */
-let mf = require('mofron');
+const mf = require('mofron');
 require('expose-loader?app!../conf/namesp.js');
 
 /* app ctrl */
-let theme = require('../conf/theme.js');
+const theme = require('../conf/theme.js');
 
 /**
  * page init function
