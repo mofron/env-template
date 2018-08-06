@@ -23,8 +23,10 @@ let start = (rc) => {
 }
 
 try {
-    theme.theme(app.root.theme());
     start(app.root);
+    theme.init(app.root);
+    fontsize.init();
+    
     app.root.visible(true);
 } catch (e) {
     console.error(e.stack);
