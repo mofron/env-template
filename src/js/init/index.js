@@ -7,6 +7,7 @@ require('expose-loader?app!../conf/namesp.js');
 
 /* app ctrl */
 const theme = require('../conf/theme.js');
+const base = require('../conf/basestyle.js');
 
 /**
  * page init function
@@ -25,7 +26,7 @@ let start = (rc) => {
 try {
     start(app.root);
     theme.init(app.root);
-    fontsize.init();
+    base.init();
     
     app.root.visible(true);
 } catch (e) {
