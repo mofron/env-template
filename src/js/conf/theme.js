@@ -5,7 +5,7 @@
 const mf   = require('mofron');
 
 module.exports = {
-    theme : (thm) => {
+    init : (thm) => {
         try {
             // please define app theme here
         } catch (e) {
