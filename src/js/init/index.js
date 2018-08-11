@@ -5,16 +5,18 @@
 const mf = require('mofron');
 require('expose-loader?app!../conf/namesp.js');
 
+const Text = require('mofron-comp-text');
+
 /* app ctrl */
 const theme = require('../conf/theme.js');
 const base = require('../conf/basestyle.js');
 
 /**
- * page init function
+ * build component contents
  * 
- * @param rc (mf.Component) root component
+ * @return mf.Component object
  */
-let start = (rc) => {
+let start = () => {
     try {
         
     } catch (e) {
@@ -24,9 +26,12 @@ let start = (rc) => {
 }
 
 try {
-    start(app.root);
-    theme.init(app.root);
     base.init();
+    let ret = start(app.root);
+    app.root.child(
+        (true === Array.isArray(ret)) ? ret : [ret]
+    );
+    theme.init(app.root);
     
     app.root.visible(true);
 } catch (e) {
