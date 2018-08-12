@@ -4,7 +4,7 @@
  * @author 
  */
 const mf = require('mofron');
-const thisobj = null;
+let thisobj = null;
 
 try {
     if (null !== thisobj) {
