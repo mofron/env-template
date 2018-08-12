@@ -3,8 +3,8 @@
  * @brief
  * @author 
  */
-let mf = require('mofron');
-let thisobj = null;
+const mf = require('mofron');
+const thisobj = null;
 
 try {
     if (null !== thisobj) {
