@@ -13,76 +13,104 @@ try {
     
     thisobj = {
         html : {
-            base : {
-                
-            },
+            base : {},
             default : {
                 'font-size' : '625%'
             },
             mobile  : {
-                'font-size' : '625%'
+                horizon  : {},
+                vertical : {}
             },
             tablet  : {
-                'font-size' : '625%'
+                horizon  : {},
+                vertical : {}
             }
         },
         body : {
             base : {
                 'margin'    : '0px',
-                'padding'   : '0px'
-            },
-            default : {
+                'padding'   : '0px',
                 'font-size' : '0.16em'
             },
+            default : {},
             mobile  : {
-                'font-size' : '0.16em'
+                horizon  : {},
+                vertical : {}
             },
             tablet  : {
-                'font-size' : '0.16em'
+                horizon  : {},
+                vertical : {}
             }
         },
         
         init    : (p1, p2) => {
             try {
-                let dtype = mf.func.devType();
-                /* set html style */
-                let set_style = '';
-                let idx       = null;
-                let tgt = [thisobj.html, thisobj.body];
+                let dtype     = mf.func.devType();
+                let set_style = thisobj.get_style(
+                    (true === mf.func.isHrzAngle()) ? 'horizon' : 'vertical'
+                );
+                document.documentElement.setAttribute('style', set_style.html);
+                document.body.setAttribute('style', set_style.body);
                 
-                for (let tidx in tgt) {
-                    set_style = '';
-                    for (idx in tgt[tidx].base) { 
-                        set_style += idx + ':' + tgt[tidx].base[idx] + ';';
+                let ang_evt = (p1, p2) => {
+                    try {
+                        let style = p2[0].get_style(p2[1]);
+                        document.documentElement.setAttribute('style', style.html);
+                        document.body.setAttribute('style', style.body);
+                    } catch (e) {
+                        console.error(e.stack);
+                        throw e;
                     }
-                    if (undefined !== arguments[idx]) {
-                        for (idx in arguments[idx]) {
-                            set_style += idx + ':' + arguments[idx] + ';';
-                        }
-                    }
-                    if ('mobile' === dtype) {
-                        for (idx in tgt[tidx].mobile) {
-                            set_style += idx + ':' + tgt[tidx].mobile[idx] + ';';
-                        }
-                    } else if ('tablet' === dtype) {
-                        for (idx in tgt[tidx].tablet) {
-                            set_style += idx + ':' + tgt[tidx].tablet[idx] + ';';
-                        }
-                    } else {
-                        for (idx in tgt[tidx].default) {
-                            set_style += idx + ':' + tgt[tidx].default[idx] + ';';
-                        }
-                    }
-                    /* set style */
-                    let tgt_elm = (0 == tidx) ? document.documentElement : document.body;
-                    tgt_elm.setAttribute('style', set_style);
                 }
+                mf.func.hrzAngleEvent(ang_evt, [thisobj, 'horizon']);
+                mf.func.vrtAngleEvent(ang_evt, [thisobj, 'vertical']);
             } catch (e) {
                 console.error(e.stack);
                 throw e;
             }
         
+        },
+        
+        get_style : (ang) => {
+            try {
+                let dtype = mf.func.devType();
+                let tgt   = ('other' === mf.func.devType()) ? 'default' : mf.func.devType();
+                let ret   = { html : '', body : '' };
+                
+                // set html style
+                for (let bidx in thisobj.html.base) {
+                    ret.html += bidx + ':' + thisobj.html.base[bidx] + ';';
+                }
+                for (let bidx in thisobj.html[tgt]) {
+                    if ('string' === typeof thisobj.html[tgt][bidx]) {
+                        ret.html += bidx + ':' + thisobj.html[tgt][bidx] + ';';
+                    } else {
+                        for (let ang_idx in thisobj.html[tgt][ang] ) {
+                            ret.html += ang_idx + ':' + thisobj.html[tgt][ang][ang_idx] + ';';
+                        }
+                    }
+                }
+                // set body style
+                for (let bidx in thisobj.body.base) {
+                    ret.body += bidx + ':' + thisobj.body.base[bidx] + ';';
+                }
+                for (let bidx in thisobj.body[tgt]) {
+                    if ('string' === typeof thisobj.body[tgt][bidx]) {
+                        ret.body += bidx + ':' + thisobj.body[tgt][bidx] + ';';
+                    } else {
+                        for (let ang_idx in thisobj.body[tgt][ang] ) {
+                            ret.body += ang_idx + ':' + thisobj.body[tgt][ang][ang_idx] + ';';
+                        }
+                    }
+                }
+                
+                return ret;
+            } catch (e) {
+                console.error(e.stack);
+                throw e;
+            }
         }
+        
     }
     module.exports = thisobj;
 } catch (e) {
