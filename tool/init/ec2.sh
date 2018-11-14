@@ -18,4 +18,4 @@ cd cli
 sudo make
 sudo make install
 
-#sudo ln -s /usr/local/bin/npm /usr/bin/npm
+sudo ln -s /usr/local/bin/npm /usr/bin/npm
