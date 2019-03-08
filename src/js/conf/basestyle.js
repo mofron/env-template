@@ -18,12 +18,12 @@ try {
                 'font-size' : '625%'
             },
             mobile  : {
-                horizon  : {},
-                vertical : {}
+                horizon  : { 'font-size' : '800%' },
+                vertical : { 'font-size' : '1200%' }
             },
             tablet  : {
-                horizon  : {},
-                vertical : {}
+                horizon  : { 'font-size' : '800%' },
+                vertical : { 'font-size' : '1000%' }
             }
         },
         body : {
