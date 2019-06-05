@@ -1,10 +1,4 @@
-const button = require('mofron-comp-button');
+require('expose-loader?app!../conf/namesp.js');
+const mf=require('mofron');
 
-try {
-    module.exports=[
-        // add component
-    ];
-} catch (e) {
-    console.error(e.stack);
-    throw e;
-}
+/* add component here */
