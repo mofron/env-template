@@ -6,9 +6,9 @@ MFTAG=node_modules/.bin/mofron-tag
 SCP_DIR=$(cd $(dirname $0);pwd);
 
 if [[ $1 == "" ]]; then
-    INPUT="$SCP_DIR/../tag/index.mof"
+    INPUT="$SCP_DIR/../mof/index.mof"
 else
-    INPUT="$SCP_DIR/../tag/$1.mof"
+    INPUT="$SCP_DIR/../mof/$1.mof"
 fi
 
 if [[ $1 == "" ]]; then

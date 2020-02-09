@@ -42,7 +42,7 @@ let getHash = () => {
 
 
 module.exports = {
-    root : new mf.Component(),
+    //root : new mf.Component(),
     conf : {
         GET  : getParam(),
         hash : getHash(),
